@@ -1,0 +1,41 @@
+# 사용 패키지 목록
+# 형식: 패키지명 | 버전 | 용도
+# 패키지 추가/제거 시 이 파일을 업데이트할 것
+
+## 프레임워크 & 코어
+next                  | 14.x  | App Router 기반 React 프레임워크
+react                 | 18.x  | UI 라이브러리
+react-dom             | 18.x  | React DOM 렌더링
+typescript            | 5.x   | 정적 타입
+
+## 스타일링
+tailwindcss           | 3.x   | 유틸리티 CSS
+postcss               | -     | Tailwind 빌드 도구
+autoprefixer          | -     | CSS 벤더 프리픽스
+
+## 애니메이션
+framer-motion         | -     | 페이지/스크롤/마이크로 애니메이션
+
+## 차트
+recharts              | -     | Stats 섹션 꺾은선(AreaChart) + 막대(BarChart) 그래프
+lenis                 | -     | 스무스 스크롤 (BAND 파트너 스타일 부드러운 스크롤 구현)
+
+## 아이콘
+lucide-react          | -     | 아이콘 세트
+
+## 폼
+react-hook-form       | -     | 문의하기 폼 유효성 검사
+
+## 이메일
+nodemailer            | -     | 문의 이메일 발송 API
+
+## MDX
+@next/mdx             | -     | Next.js MDX 통합
+@mdx-js/react         | -     | MDX React 렌더링
+gray-matter           | -     | MDX frontmatter 파싱
+
+## 타입 정의
+@types/node           | -     | Node.js 타입
+@types/react          | -     | React 타입
+@types/react-dom      | -     | ReactDOM 타입
+@types/nodemailer     | -     | Nodemailer 타입

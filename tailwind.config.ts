@@ -9,8 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#0055FF",
+        accent: "#00D4FF",
+        dark: "#0A0A0F",
+        "dark-card": "#12121A",
+        "dark-border": "#1E1E2E",
+      },
+      fontFamily: {
+        pretendard: ["Pretendard Variable", "Pretendard", "sans-serif"],
+        noto: ["Noto Sans KR", "sans-serif"],
       },
     },
   },

@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { SITE_CONFIG } from "@/lib/constants";
-import { getAllBlogPosts, getAllPortfolioItems } from "@/lib/mdx";
+import { getAllBlogPosts } from "@/lib/mdx";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
@@ -24,12 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const portfolioItems = getAllPortfolioItems().map((item) => ({
-    url: `${baseUrl}/portfolio/${item.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  // 포트폴리오 상세 페이지는 동적 라우트 미구현으로 404 → sitemap 제외
 
-  return [...staticPages, ...blogPosts, ...portfolioItems];
+  return [...staticPages, ...blogPosts];
 }

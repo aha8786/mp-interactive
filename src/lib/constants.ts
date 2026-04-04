@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   nameEn: "MP Interactive",
   description:
     "네이버, 구글, SNS 광고를 전문으로 하는 디지털 마케팅 대행사. 데이터 기반 광고 전략으로 매출을 올려드립니다.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://mpinteractive.co.kr",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://mpinteractive.co.kr").trim(),
   phone: "010-6664-8786",
   email: "pinit8786@gmail.com",
   address: "경상북도 울진군 울진읍 울진중앙로 138-5",

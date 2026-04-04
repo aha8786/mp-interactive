@@ -69,6 +69,11 @@ const businessSchema = {
   serviceArea: "대한민국 전국",
   priceRange: "$$",
   openingHours: "Mo-Fr 09:00-18:00",
+  sameAs: [
+    SITE_CONFIG.instagram,
+    SITE_CONFIG.blog,
+    SITE_CONFIG.kakaoChannel,
+  ],
 };
 
 export default function RootLayout({

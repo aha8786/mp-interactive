@@ -184,7 +184,7 @@ export default function NaverBandAdsPage() {
           {/* list_ad: 좌상단 */}
           <motion.div
             className="absolute"
-            style={{ left: 80, top: 30, width: 580, zIndex: 2, rotate: -12 }}
+            style={{ left: "calc(50% - 560px)", top: 30, width: "min(580px, 45%)", zIndex: 2, rotate: -12 }}
             animate={{ y: [0, -14, 0], rotate: [-12, -10, -12] }}
             transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -196,7 +196,7 @@ export default function NaverBandAdsPage() {
           {/* home_ad: 우상단 */}
           <motion.div
             className="absolute"
-            style={{ left: 1130, top: 30, width: 280, zIndex: 3, rotate: 12 }}
+            style={{ left: "calc(50% + 280px)", top: 30, width: "min(280px, 22%)", zIndex: 3, rotate: 12 }}
             animate={{ y: [0, -16, 0], rotate: [12, 10, 12] }}
             transition={{ duration: 5.0, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
           >
@@ -218,7 +218,7 @@ export default function NaverBandAdsPage() {
           {/* new_ad: 중앙 하단 */}
           <motion.div
             className="absolute"
-            style={{ left: 720, top: 260, width: 310, zIndex: 4, rotate: 2 }}
+            style={{ left: "calc(50% + 20px)", top: 260, width: "min(310px, 24%)", zIndex: 4, rotate: 2 }}
             animate={{ y: [0, -12, 0], rotate: [2, 4, 2] }}
             transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
           >

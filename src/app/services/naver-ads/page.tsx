@@ -177,14 +177,62 @@ export default function NaverBandAdsPage() {
 
       {/* 광고 소개 섹션 — 게재 위치 자리로 이동 */}
       <section style={{ background: "#ffffff" }}>
-        {/* 이미지 floating 영역 */}
-        <div className="relative overflow-hidden" style={{ height: 460 }}>
+
+        {/* ── 모바일 레이아웃 (lg 미만) ── */}
+        <div className="lg:hidden px-5 py-10">
+          <div className="pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 60%, rgba(3,199,90,0.04) 0%, transparent 70%)" }} />
+          {/* 텍스트 */}
+          <div className="text-center mb-8">
+            <p className="text-xl font-black mb-2" style={{ fontFamily: "Pretendard, sans-serif", color: "#1C1814" }}>
+              네이버 밴드 광고로 이런 걸 할 수 있어요!
+            </p>
+            <p className="text-sm" style={{ color: "#6E6860" }}>
+              목적과 예산에 따라 노출 위치를 선택해 딱 맞는 광고를 진행해요.
+            </p>
+          </div>
+          {/* 이미지 세로 스택 */}
+          <div className="flex flex-col items-center gap-5">
+            <motion.div
+              className="w-full max-w-sm"
+              style={{ rotate: -4 }}
+              animate={{ y: [0, -8, 0], rotate: [-4, -2, -4] }}
+              transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="rounded-2xl overflow-hidden shadow-xl" style={{ border: "1px solid #e0e0e0" }}>
+                <Image src="/images/band/list_ad.png" alt="내 밴드 목록 광고" width={650} height={192} className="object-contain w-full" />
+              </div>
+            </motion.div>
+            <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+              <motion.div
+                style={{ rotate: 4 }}
+                animate={{ y: [0, -10, 0], rotate: [4, 6, 4] }}
+                transition={{ duration: 5.0, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+              >
+                <div className="rounded-2xl overflow-hidden shadow-xl" style={{ border: "1px solid #e0e0e0" }}>
+                  <Image src="/images/band/home_ad.png" alt="밴드 홈 광고" width={300} height={367} className="object-contain w-full" />
+                </div>
+              </motion.div>
+              <motion.div
+                style={{ rotate: -2 }}
+                animate={{ y: [0, -7, 0], rotate: [-2, 0, -2] }}
+                transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+              >
+                <div className="rounded-2xl overflow-hidden shadow-lg" style={{ border: "1px solid #e0e0e0" }}>
+                  <Image src="/images/band/new_ad.png" alt="새소식 광고" width={330} height={98} className="object-contain w-full" />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── 데스크탑 레이아웃 (lg 이상) ── */}
+        <div className="relative overflow-hidden hidden lg:block" style={{ height: 460 }}>
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 60%, rgba(3,199,90,0.04) 0%, transparent 70%)" }} />
 
           {/* list_ad: 좌상단 */}
           <motion.div
             className="absolute"
-            style={{ left: "calc(50% - 560px)", top: 30, width: "min(580px, 45%)", zIndex: 2, rotate: -12 }}
+            style={{ left: "calc(50% - 560px)", top: 30, width: "43%", maxWidth: 580, zIndex: 2, rotate: -12 }}
             animate={{ y: [0, -14, 0], rotate: [-12, -10, -12] }}
             transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -196,7 +244,7 @@ export default function NaverBandAdsPage() {
           {/* home_ad: 우상단 */}
           <motion.div
             className="absolute"
-            style={{ left: "calc(50% + 280px)", top: 30, width: "min(280px, 22%)", zIndex: 3, rotate: 12 }}
+            style={{ left: "calc(50% + 21%)", top: 30, width: "21%", maxWidth: 280, zIndex: 3, rotate: 12 }}
             animate={{ y: [0, -16, 0], rotate: [12, 10, 12] }}
             transition={{ duration: 5.0, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
           >
@@ -207,10 +255,10 @@ export default function NaverBandAdsPage() {
 
           {/* 중앙 텍스트 */}
           <div className="absolute" style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", zIndex: 5, textAlign: "center", pointerEvents: "none", whiteSpace: "nowrap" }}>
-            <p className="text-2xl md:text-3xl font-black mb-2" style={{ fontFamily: "Pretendard, sans-serif", color: "#1C1814" }}>
+            <p className="text-2xl xl:text-3xl font-black mb-2" style={{ fontFamily: "Pretendard, sans-serif", color: "#1C1814" }}>
               네이버 밴드 광고로 이런 걸 할 수 있어요!
             </p>
-            <p className="text-sm md:text-base" style={{ color: "#6E6860" }}>
+            <p className="text-sm xl:text-base" style={{ color: "#6E6860" }}>
               목적과 예산에 따라 노출 위치를 선택해 딱 맞는 광고를 진행해요.
             </p>
           </div>
@@ -218,7 +266,7 @@ export default function NaverBandAdsPage() {
           {/* new_ad: 중앙 하단 */}
           <motion.div
             className="absolute"
-            style={{ left: "calc(50% + 20px)", top: 260, width: "min(310px, 24%)", zIndex: 4, rotate: 2 }}
+            style={{ left: "calc(50% + 2%)", top: 260, width: "23%", maxWidth: 310, zIndex: 4, rotate: 2 }}
             animate={{ y: [0, -12, 0], rotate: [2, 4, 2] }}
             transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
           >

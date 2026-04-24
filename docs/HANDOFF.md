@@ -4,6 +4,25 @@
 
 ---
 
+## [2026-04-24] SEO 강화 — 네이버 밴드 광고 키워드 타겟팅
+
+### 목표 키워드
+- 네이버 밴드 광고 / 밴드 광고 / 네이버 밴드 광고 대행 / 밴드 광고 대행
+
+### 변경 파일
+- `src/app/services/naver-ads/page.tsx` — 서버 컴포넌트로 분리 + 메타데이터(title, description, keywords, OG) 추가
+- `src/app/services/naver-ads/NaverBandAdsClient.tsx` — 기존 클라이언트 컴포넌트 분리
+- `src/app/layout.tsx` — 전역 keywords에 띄어쓰기 포함 밴드 광고 키워드 추가
+- `src/app/sitemap.ts` — naver-ads 우선순위 0.9→0.95, changeFrequency monthly→weekly 변경
+- `src/content/blog/naver-band-ads-guide.mdx` — 밴드 광고 전용 블로그 포스트 신규 생성
+
+### 이유
+- 기존 page.tsx가 "use client"로 메타데이터 미적용 상태였음 → 서버/클라이언트 분리로 해결
+- 기존 키워드가 붙여쓰기("네이버밴드광고")만 포함 → 띄어쓰기 형태 추가
+- 블로그 포스트(롱폼 콘텐츠)는 검색 랭킹에서 가장 효과적인 수단 → 밴드 광고 전용 가이드 생성
+
+---
+
 ## [2026-03-13] 네이버 밴드 광고 체험 섹션 구현 (/services/naver-ads)
 
 ### 변경 파일

@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
     { url: `${baseUrl}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/services/naver-ads`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/services/naver-ads`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
     { url: `${baseUrl}/services/google-ads`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/services/sns-ads`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/portfolio`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: "weekly" as const,
-    priority: 0.7,
+    priority: post.slug === "naver-band-ads-guide" ? 0.85 : 0.7,
   }));
 
   // 포트폴리오 상세 페이지는 동적 라우트 미구현으로 404 → sitemap 제외

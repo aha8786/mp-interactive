@@ -16,7 +16,7 @@ const notoSansKR = Noto_Sans_KR({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${SITE_CONFIG.name} | 디지털 광고 전문 대행사`,
+    default: `${SITE_CONFIG.name} | 밴드 광고 전문 대행사`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,

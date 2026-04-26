@@ -21,8 +21,8 @@ const socialLinks = [
   {
     id: "naver",
     label: "네이버 블로그",
-    href: "#",
-    disabled: true,
+    href: "https://blog.naver.com/pinit8786",
+    disabled: false,
     bg: "#03C75A",
     color: "#FFFFFF",
     icon: (

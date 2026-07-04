@@ -20,9 +20,9 @@ function getVariants(direction: Direction) {
     case "down":
       return { hidden: { ...base, y: -60 }, visible: { opacity: 1, y: 0 } };
     case "left":
-      return { hidden: { ...base, x: 60 }, visible: { opacity: 1, x: 0 } };
+      return { hidden: { ...base, x: 20 }, visible: { opacity: 1, x: 0 } };
     case "right":
-      return { hidden: { ...base, x: -60 }, visible: { opacity: 1, x: 0 } };
+      return { hidden: { ...base, x: -20 }, visible: { opacity: 1, x: 0 } };
     case "scale":
       return {
         hidden: { ...base, scale: 0.92 },

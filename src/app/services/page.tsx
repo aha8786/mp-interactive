@@ -100,7 +100,7 @@ export default function ServicesPage() {
 
                     <div className="md:w-1/2">
                       <h3 className="text-sm font-semibold mb-4" style={{ color: "#1C1814" }}>서비스 특징</h3>
-                      <div className="grid grid-cols-2 gap-3 mb-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                         {service.features.map((feat) => (
                           <div
                             key={feat}

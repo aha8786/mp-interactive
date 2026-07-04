@@ -531,3 +531,41 @@
     display: block;
   }
 }
+
+/* ── 모바일 (~767px): 가로 캐러셀 → 세로 스택 ────── */
+@media (max-width: 767px) {
+  .scrollWrapper {
+    overflow-x: visible;
+    cursor: default;
+    padding: 12px 16px 24px;
+  }
+
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    min-width: 0;
+    width: 100%;
+    gap: 16px;
+  }
+
+  /* 모든 카드 grid-row 스팬 해제 */
+  .cardA,
+  .cardB,
+  .cardC1,
+  .cardC2,
+  .cardCTA,
+  .cardD {
+    grid-row: auto;
+    grid-column: auto;
+    min-height: 280px;
+  }
+
+  /* cardA: SVG 절대배치라 충분한 높이 필요 */
+  .cardA {
+    min-height: 340px;
+  }
+
+  .scrollHint {
+    display: none;
+  }
+}

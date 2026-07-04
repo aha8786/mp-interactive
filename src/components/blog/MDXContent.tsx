@@ -45,7 +45,10 @@ function parseMarkdown(md: string): string {
 export default function MDXContent({ content }: MDXContentProps) {
   // 테이블 래핑 처리
   let processed = parseMarkdown(content);
-  processed = processed.replace(/(<tr>[\s\S]*?<\/tr>)+/g, (match) => `<table>${match}</table>`);
+  processed = processed.replace(
+    /(<tr>[\s\S]*?<\/tr>)+/g,
+    (match) => `<div class="mdx-table-wrap"><table>${match}</table></div>`
+  );
 
   return (
     <div

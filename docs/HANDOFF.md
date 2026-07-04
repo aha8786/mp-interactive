@@ -4,6 +4,63 @@
 
 ---
 
+## [2026-06-10] 전체 반응형 최적화 (docs/retouch.md 지시 이행)
+
+### 목표
+- mobile(~767px) / tablet(768~1023px) / desktop(1024+) 3단계에서 가로 스크롤·overflow 없이 정상 레이아웃
+- 메인 Hero 텍스트 줄바꿈 방지 (`clamp()` + `white-space: nowrap`)
+- 텍스트·이미지 잘림 방지 (CSS 우선)
+
+### Verifier 최종 점수: **100 / 100** ✅
+모든 경로(`/`, `/services`, `/services/naver-ads`, `/blog`, `/contact`)의 375/768/1024/1440px 폭에서
+`scrollWidth === innerWidth` 확인 — JS 에러 없음
+
+### 변경 파일 및 내용
+
+#### 1. `src/app/globals.css`
+- `html { overflow-x: hidden; }` 추가 — Chromium에서 `overflow: hidden` 섹션 내부의 `absolute` 장식 요소가 `document.documentElement.scrollWidth`를 부풀리는 버그 대응
+- `.mdx-content { overflow-wrap: break-word; word-break: break-word; }` 추가 — 긴 URL/단어 잘림 방지
+- `.mdx-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; }` 추가
+- `.mdx-content table { margin: 0; }` — 마진을 래퍼로 이동
+- 한글 주석 → 영문으로 교체 (Next.js HMR eval() 인코딩 오류 방지)
+
+#### 2. `src/components/common/FadeInSection.tsx`
+- `direction="left"` 초기 x 오프셋: 60px → 20px
+- `direction="right"` 초기 x 오프셋: -60px → -20px
+- **이유**: 모바일(375px) 좌우 padding 16px 환경에서 x:60 오프셋이 콘텐츠를 76px 위치로 밀어내 44px 가로 overflow 발생
+
+#### 3. `src/components/home/HeroSection.tsx`
+- 두 `<motion.h1>`의 Tailwind 폰트 클래스 제거 → `style={{ fontSize: "clamp(1.5rem, 6.5vw, 3.75rem)", whiteSpace: "nowrap" }}` 적용
+- 320px~1440px 전 구간에서 한 줄 유지, 최소 가독성 1.5rem 보장
+
+#### 4. `src/components/home/BentoSection.module.css`
+- `@media (max-width: 767px)` 블록 신규 추가 — 모바일에서 드래그 캐러셀 → 1열 세로 스택 전환
+  - `.scrollWrapper`: `overflow-x: visible`, `cursor: default`, 패딩 축소
+  - `.bentoGrid`: `grid-template-columns: 1fr`, `min-width: 0`
+  - 카드 6종: `grid-row: auto; grid-column: auto; min-height: 280px` (cardA는 340px)
+  - `.scrollHint`: `display: none`
+
+#### 5. `src/components/blog/MDXContent.tsx`
+- 테이블 HTML을 `<div class="mdx-table-wrap"><table>…</table></div>`로 래핑 — 모바일 테이블 가로 스크롤 제공
+
+#### 6. `src/app/services/naver-ads/NaverBandAdsClient.tsx`
+- 데스크탑 콜라주 분기: `lg:hidden` → `xl:hidden`, `hidden lg:block` → `hidden xl:block` (1024~1279px 겹침 방지)
+- Q3 카드 그리드: 인라인 `gridTemplateColumns: "2fr 3fr"` → Tailwind `grid-cols-1 md:grid-cols-[2fr_3fr]`
+- Q3 좌측 구분선: 고정 `borderRight` → 모바일 `border-b`, 태블릿+ `md:border-b-0 md:border-r`
+- 중첩 이미지/설명 그리드: 인라인 `1fr 1fr` → `grid-cols-1 sm:grid-cols-2`
+- 탭 gap: `gap-10` → `gap-4 sm:gap-10`, 탭 패딩: `px-8` → `px-4 sm:px-6 md:px-8`
+
+#### 7. `src/app/services/page.tsx`
+- 특징 그리드: `grid-cols-2` → `grid-cols-1 sm:grid-cols-2` (모바일 2열 → 1열)
+
+### 이유 요약
+- `FadeInSection` x 오프셋 60px이 모바일 44px 가로 overflow의 직접 원인
+- `absolute` 장식 div가 `overflow:hidden` 섹션 내에 있어도 Chromium은 scrollWidth에 반영 → `html { overflow-x: hidden }`으로 HTML 루트에서 차단
+- BentoSection의 `min-width: 1800px` 그리드는 의도적 수평 캐러셀이므로 JS 로직 변경 없이 CSS만 모바일 오버라이드
+- HMR eval() 한글 인코딩 문제를 방지하기 위해 모든 신규 CSS 주석을 영문으로 작성
+
+---
+
 ## [2026-04-24] SEO 강화 — 네이버 밴드 광고 키워드 타겟팅
 
 ### 목표 키워드

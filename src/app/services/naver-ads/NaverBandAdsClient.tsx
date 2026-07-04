@@ -178,8 +178,8 @@ export default function NaverBandAdsClient() {
       {/* 광고 소개 섹션 — 게재 위치 자리로 이동 */}
       <section style={{ background: "#ffffff" }}>
 
-        {/* ── 모바일 레이아웃 (lg 미만) ── */}
-        <div className="lg:hidden px-5 py-10">
+        {/* ── 모바일/태블릿 레이아웃 (xl 미만) ── */}
+        <div className="xl:hidden px-5 py-10">
           <div className="pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 60%, rgba(3,199,90,0.04) 0%, transparent 70%)" }} />
           {/* 텍스트 */}
           <div className="text-center mb-8">
@@ -225,8 +225,8 @@ export default function NaverBandAdsClient() {
           </div>
         </div>
 
-        {/* ── 데스크탑 레이아웃 (lg 이상) ── */}
-        <div className="relative overflow-hidden hidden lg:block" style={{ height: 460 }}>
+        {/* ── 데스크탑 레이아웃 (xl 이상) ── */}
+        <div className="relative overflow-hidden hidden xl:block" style={{ height: 460 }}>
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 60%, rgba(3,199,90,0.04) 0%, transparent 70%)" }} />
 
           {/* list_ad: 좌상단 */}
@@ -277,7 +277,7 @@ export default function NaverBandAdsClient() {
         </div>
 
         {/* Q&A 카드 영역 */}
-        <div className="max-w-6xl mx-auto px-8 pb-20 pt-2">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-2">
 
           {/* Q1 + Q2 나란히 */}
           <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -315,10 +315,10 @@ export default function NaverBandAdsClient() {
 
           {/* Q3 — 좌우 분할: Q(좌) / A+탭+프리뷰(우) */}
           <div className="rounded-2xl overflow-hidden" style={{ background: "#ffffff", border: "1px solid #E8E4DC", boxShadow: "0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04)" }}>
-            <div className="grid" style={{ gridTemplateColumns: "2fr 3fr", minHeight: 380 }}>
+            <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr]" style={{ minHeight: 380 }}>
 
-              {/* 좌측: Q */}
-              <div className="flex items-center p-10" style={{ borderRight: "1px solid #CEC9B8" }}>
+              {/* 좌측: Q — 모바일: 하단 보더 / md+: 우측 보더 */}
+              <div className="flex items-center p-6 md:p-10 border-b md:border-b-0 md:border-r" style={{ borderColor: "#CEC9B8" }}>
                 <div>
                   <span className="inline-block text-xs font-black tracking-widest px-2 py-0.5 rounded-full mb-4" style={{ background: "rgba(0,85,255,0.1)", color: "#0055FF" }}>Q</span>
                   <p className="text-xl font-bold leading-snug" style={{ color: "#1C1814" }}>내가 진행한 광고는<br />어디에 노출되나요?</p>
@@ -329,9 +329,9 @@ export default function NaverBandAdsClient() {
               <div className="flex flex-col">
 
                 {/* A 배지 + 세그먼트 탭 */}
-                <div className="flex items-center gap-4 px-8 py-5">
+                <div className="flex items-center gap-4 px-4 sm:px-6 md:px-8 py-5">
                   <span className="inline-block text-xs font-black tracking-widest px-2 py-0.5 rounded-full shrink-0" style={{ background: "rgba(3,199,90,0.12)", color: "#03C75A" }}>A</span>
-                  <div className="relative flex gap-10">
+                  <div className="relative flex gap-4 sm:gap-10">
                     {/* 전체 배경선 */}
                     <div className="absolute bottom-0 left-0 right-0" style={{ height: 2, background: "#E8E4DC" }} />
 
@@ -362,8 +362,8 @@ export default function NaverBandAdsClient() {
                 {/* 구분선 */}
                 <div style={{ borderTop: "1px solid #EEEBE4" }} />
 
-                {/* 이미지(좌) + 설명(우) */}
-                <div className="flex-1 grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
+                {/* 이미지(상/좌) + 설명(하/우) */}
+                <div className="flex-1 grid grid-cols-1 sm:grid-cols-2">
                   <AnimatePresence mode="wait">
                     {/* 이미지 */}
                     <motion.div

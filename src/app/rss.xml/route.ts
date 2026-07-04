@@ -1,6 +1,8 @@
 import { getAllBlogPosts } from "@/lib/mdx";
 import { SITE_CONFIG } from "@/lib/constants";
 
+export const revalidate = 3600; // 1시간 캐싱 (Cold Start 방지)
+
 function markdownToHtml(markdown: string, baseUrl: string): string {
   return (
     markdown

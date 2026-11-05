@@ -32,8 +32,6 @@ export const metadata: Metadata = {
     "광고대행사",
     "광고대행",
     "디지털마케팅",
-    "구글광고",
-    "SNS광고",
     "퍼포먼스마케팅",
     "핀잇",
   ],
@@ -44,17 +42,10 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
-  verification: {
-    google: "GOOGLE_SEARCH_CONSOLE_CODE",
-    other: { "naver-site-verification": "NAVER_CODE" },
-  },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true },
-  },
-  alternates: {
-    canonical: SITE_CONFIG.url,
   },
 };
 
@@ -62,7 +53,7 @@ const businessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: SITE_CONFIG.name,
-  description: "디지털 광고 전문 대행사",
+  description: SITE_CONFIG.description,
   url: SITE_CONFIG.url,
   telephone: SITE_CONFIG.phone,
   address: {

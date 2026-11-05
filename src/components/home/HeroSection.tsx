@@ -55,30 +55,32 @@ export default function HeroSection() {
           {/* 좌측 텍스트 */}
           <div>
             {/* 메인 타이틀 */}
-            <motion.h1
-              {...getItemProps(1)}
-              className="font-black leading-tight mb-2"
-              style={{
-                fontFamily: "Pretendard, sans-serif",
-                color: "#1C1814",
-                fontSize: "clamp(1.5rem, 6.5vw, 3.75rem)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              AI와 데이터로 만드는
-            </motion.h1>
-            <motion.h1
-              {...getItemProps(2)}
-              className="font-black leading-tight mb-6"
-              style={{
-                fontFamily: "Pretendard, sans-serif",
-                fontSize: "clamp(1.5rem, 6.5vw, 3.75rem)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              <span className="gradient-text">밴드 광고</span>{" "}
-              <span style={{ color: "#1C1814" }}>퍼포먼스</span>
-            </motion.h1>
+            <h1>
+              <motion.span
+                {...getItemProps(1)}
+                className="block font-black leading-tight mb-2"
+                style={{
+                  fontFamily: "Pretendard, sans-serif",
+                  color: "#1C1814",
+                  fontSize: "clamp(1.5rem, 6.5vw, 3.75rem)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                AI와 데이터로 만드는
+              </motion.span>
+              <motion.span
+                {...getItemProps(2)}
+                className="block font-black leading-tight mb-6"
+                style={{
+                  fontFamily: "Pretendard, sans-serif",
+                  fontSize: "clamp(1.5rem, 6.5vw, 3.75rem)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                <span className="gradient-text">밴드 광고</span>{" "}
+                <span style={{ color: "#1C1814" }}>퍼포먼스</span>
+              </motion.span>
+            </h1>
 
             {/* 타이핑 텍스트 */}
             <motion.p

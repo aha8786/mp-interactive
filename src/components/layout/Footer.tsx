@@ -25,7 +25,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-[#6E6860] leading-relaxed mb-4">
-              데이터 기반 디지털 광고 전문 대행사. 네이버 밴드·구글·SNS 광고로 실질적인 매출 성장을 만들어드립니다.
+              데이터 기반 네이버 밴드 광고 전문 대행사. 밴드 광고로 실질적인 매출 성장을 만들어드립니다.
             </p>
             <div className="flex gap-3">
               <a

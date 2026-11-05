@@ -20,6 +20,24 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "Googlebot",
         allow: "/",
       },
+      {
+        // AI 검색·답변·학습 크롤러: 전체 허용
+        userAgent: [
+          "GPTBot",
+          "OAI-SearchBot",
+          "ChatGPT-User",
+          "ClaudeBot",
+          "Claude-SearchBot",
+          "Claude-User",
+          "PerplexityBot",
+          "Perplexity-User",
+          "Google-Extended",
+          "Applebot-Extended",
+          "Bingbot",
+          "meta-externalagent",
+        ],
+        allow: "/",
+      },
     ],
     sitemap: `${SITE_CONFIG.url}/sitemap.xml`,
   };

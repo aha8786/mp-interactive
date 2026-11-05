@@ -15,7 +15,8 @@ function parseMarkdown(md: string): string {
     .replace(/^#### (.+)$/gm, "<h4>$1</h4>")
     .replace(/^### (.+)$/gm, "<h3>$1</h3>")
     .replace(/^## (.+)$/gm, "<h2>$1</h2>")
-    .replace(/^# (.+)$/gm, "<h1>$1</h1>")
+    // 페이지 제목이 이미 h1이므로 본문 제목은 h2로 출력
+    .replace(/^# (.+)$/gm, "<h2>$1</h2>")
     // 인용구
     .replace(/^> (.+)$/gm, "<blockquote>$1</blockquote>")
     // 볼드

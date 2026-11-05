@@ -20,14 +20,18 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPost(params.slug);
   if (!post) return {};
+  const url = `${SITE_CONFIG.url}/blog/${params.slug}`;
   return {
     title: post.title,
     description: post.description,
+    alternates: { canonical: url },
     openGraph: {
       title: `${post.title} | ${SITE_CONFIG.name}`,
       description: post.description,
+      url,
       type: "article",
       publishedTime: post.date,
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
     },
   };
 }

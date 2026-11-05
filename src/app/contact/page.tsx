@@ -1,6 +1,13 @@
 import { Clock, MessageCircle, MessageSquare } from "lucide-react";
 import FadeInSection from "@/components/common/FadeInSection";
 import { SITE_CONFIG } from "@/lib/constants";
+import { buildMetadata } from "@/lib/metadata";
+
+export const metadata = buildMetadata({
+  title: "무료 상담 문의",
+  description: "네이버 밴드 광고 무료 상담을 카카오톡 또는 문자 메시지로 문의하세요.",
+  path: "/contact",
+});
 
 const CHANNELS = [
   {

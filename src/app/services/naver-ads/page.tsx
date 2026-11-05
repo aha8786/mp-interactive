@@ -3,7 +3,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 import NaverBandAdsClient from "./NaverBandAdsClient";
 
 export const metadata: Metadata = {
-  title: "네이버 밴드 광고 대행 | 밴드 광고 전문 핀잇",
+  title: { absolute: "네이버 밴드 광고 대행 | 밴드 광고 전문 핀잇" },
   description:
     "네이버 밴드 광고 전문 대행사 핀잇. 밴드 홈·새소식·내 밴드 목록 세 가지 지면에서 30~50대 핵심 소비층에게 정밀 타겟팅 밴드 광고를 집행합니다. 지역 광고·커뮤니티 광고 무료 상담.",
   keywords: [
@@ -34,6 +34,26 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "네이버 밴드 광고 대행",
+  serviceType: "디지털 광고 대행",
+  description:
+    "밴드 홈·새소식·내 밴드 목록 지면에서 30~50대 소비층을 대상으로 타겟팅 광고를 집행하는 네이버 밴드 광고 대행 서비스입니다.",
+  url: `${SITE_CONFIG.url}/services/naver-ads`,
+  areaServed: { "@type": "Country", name: "대한민국" },
+  provider: { "@type": "LocalBusiness", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
+};
+
 export default function NaverBandAdsPage() {
-  return <NaverBandAdsClient />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <NaverBandAdsClient />
+    </>
+  );
 }

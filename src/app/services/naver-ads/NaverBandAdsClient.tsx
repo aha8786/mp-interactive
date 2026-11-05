@@ -513,11 +513,10 @@ export default function NaverBandAdsClient() {
                       style={{ color: "#6E6860", transform: openFaq === i ? "rotate(180deg)" : "none" }}
                     />
                   </button>
-                  {openFaq === i && (
-                    <div className="px-6 pb-5 text-sm leading-relaxed" style={{ color: "#6E6860", borderTop: "1px solid #EEEBE4" }}>
-                      <p className="pt-4">{faq.a}</p>
-                    </div>
-                  )}
+                  {/* 닫혀 있어도 HTML에 답변을 남겨 검색엔진과 AI가 읽을 수 있게 함 */}
+                  <div hidden={openFaq !== i} className="px-6 pb-5 text-sm leading-relaxed" style={{ color: "#6E6860", borderTop: "1px solid #EEEBE4" }}>
+                    <p className="pt-4">{faq.a}</p>
+                  </div>
                 </div>
               </FadeInSection>
             ))}

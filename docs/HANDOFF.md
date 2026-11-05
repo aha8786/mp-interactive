@@ -4,6 +4,33 @@
 
 ---
 
+## [2026-11-05] AI 크롤러 명시적 허용, llms.txt 추가
+
+### 이유
+- AEO·GEO 대응으로 AI가 사이트를 읽을 수 있게 개방 요청
+- 기존에도 `*` 규칙으로 허용 상태였으나 AI 크롤러별 허용 의사를 명시
+
+### 변경 내용
+- `src/app/robots.ts`: GPTBot, ClaudeBot, PerplexityBot 등 AI 검색·답변·학습 크롤러 허용 규칙 추가
+- `public/llms.txt` 추가: 회사 소개, 서비스, 문의 방법, 주요 페이지 링크. 미출시 서비스와 포트폴리오는 제외
+
+- `src/app/layout.tsx`: 모든 하위 페이지로 상속되어 홈을 가리키던 canonical 제거. 자리표시자 인증 메타 태그 제거. 미출시 서비스 키워드 제거. 스키마 설명을 밴드 광고 전문으로 변경
+- `src/app/page.tsx`, `src/app/contact/page.tsx`, `src/app/blog/[slug]/page.tsx`: 페이지별 canonical 추가. 문의 페이지 제목과 설명 추가
+- `src/app/_portfolio`, `src/app/services/_google-ads`, `src/app/services/_sns-ads`: 예시 실적과 미출시 서비스를 비공개 처리. `_` 폴더는 라우트에서 제외되어 404가 됨. 폴더 이름에서 `_`를 빼고 사이트맵에 다시 넣으면 복구됨
+- `src/app/sitemap.ts`: 비공개 페이지 제거
+- `src/app/services/naver-ads/NaverBandAdsClient.tsx`: FAQ 답변을 닫혀 있어도 HTML에 남기도록 변경
+- `src/app/services/naver-ads/page.tsx`: 제목의 브랜드명 중복 제거, `Service` 스키마 추가
+- `src/components/home/HeroSection.tsx`, `src/components/blog/MDXContent.tsx`: 페이지당 `h1` 1개로 정리
+- `src/components/layout/Footer.tsx`: 소개 문구에서 미출시 서비스 제거
+- `public/og-image.jpg` 추가: 404였던 공유 이미지를 `logo1.png`로 생성
+
+### 남은 작업
+- 블로그 글 작성일이 모두 2024년. 내용 검토 후 실제 수정일 반영 필요
+- 스키마 `openingHours`(Mo-Fr 09:00-18:00)와 사이트 표시 응대 시간(평일 09:00 ~ 24:00) 불일치
+- 네이버 밴드 광고 FAQ의 리포트 이메일 제공 문구는 문의 접수와 별개라 유지
+
+---
+
 ## [2026-11-05] 파비콘을 로고의 핀 심볼로 교체
 
 ### 이유

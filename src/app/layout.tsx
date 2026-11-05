@@ -65,10 +65,10 @@ const businessSchema = {
   description: "디지털 광고 전문 대행사",
   url: SITE_CONFIG.url,
   telephone: SITE_CONFIG.phone,
-  email: SITE_CONFIG.email,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "서울",
+    addressRegion: "경상북도",
+    addressLocality: "울진군",
     addressCountry: "KR",
   },
   serviceArea: "대한민국 전국",

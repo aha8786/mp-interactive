@@ -4,6 +4,39 @@
 
 ---
 
+## [2026-11-05] 문의 접수를 카카오톡·문자로 변경, 이메일 발송 제거
+
+### 이유
+- 메일 접수를 받지 않고 카카오톡과 문자 메시지로만 문의를 받기로 결정
+- 문의하기 페이지에서 주소 노출 제거 요청
+
+### 변경 내용
+- `src/app/contact/page.tsx`: 문의 폼, 전화, 이메일, 주소 제거. 카카오톡·문자(`sms:`) 링크와 응대 시간, 상담 진행 방식만 표시. 폼 제거로 서버 컴포넌트로 전환
+- `src/app/contact/page.tsx`: 응대 시간이 "평일 평일 09:00 ~ 24:00"으로 중복 표시되던 문제 수정
+- `src/app/api/contact/route.ts`: 삭제 (Nodemailer 메일 발송 API)
+- `src/lib/constants.ts`: 폼 전용 `INQUIRY_TYPES` 삭제
+- `package.json`, `package-lock.json`, `requirements.txt`: `nodemailer`, `@types/nodemailer`, `react-hook-form` 제거
+- `.env.local.example`: `EMAIL_SERVER_*`, `CONTACT_RECEIVE_EMAIL` 제거
+- `CLAUDE.md`, `docs/master_plan.md`: 기술 스택과 문의 페이지 명세 갱신
+
+- `src/components/layout/Footer.tsx`: 이메일과 주소 제거 (메일 접수 중단, 주소 비노출 요청)
+- `src/app/privacy/page.tsx`: 수집 항목을 카카오톡·문자 기준으로 변경, Gmail 위탁을 카카오 채널 위탁으로 교체, 이메일 연락처 제거, 시행일을 2026년 11월 5일로 변경
+
+- `src/app/layout.tsx`: Schema.org에서 이메일 제거, 지역을 서울에서 경상북도 울진군으로 수정 (도로명 주소는 넣지 않음)
+- `src/components/layout/Footer.tsx`: 페이지가 없어 404가 나던 `/terms` 링크 제거. 전화 링크는 유지
+- `src/lib/constants.ts`: `SITE_CONFIG.email`, `SITE_CONFIG.address` 삭제. 사용처가 없고, 객체째 클라이언트 JS에 포함되어 값이 노출되던 문제 해결
+
+- `src/lib/constants.ts`: `SITE_CONFIG.blog`를 실제 공식 블로그인 `blog.naver.com/pinit8786`으로 변경 (Schema.org `sameAs`와 플로팅 버튼 일치)
+
+### 참고
+- Vercel 환경변수 `EMAIL_SERVER_*`, `CONTACT_RECEIVE_EMAIL`은 재사용 대비로 유지. 현재 코드는 읽지 않음
+- 메일 기능을 다시 쓰려면 삭제한 `src/app/api/contact/route.ts`와 폼, 패키지를 git 이력에서 복구해야 함
+
+### 남은 작업
+- 개인정보처리방침의 시행일과 카카오 위탁 조항, 수집 항목 검토
+
+---
+
 ## [2026-06-10] 전체 반응형 최적화 (docs/retouch.md 지시 이행)
 
 ### 목표

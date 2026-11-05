@@ -33,8 +33,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | Icons | Lucide React |
 | Font | Pretendard + Noto Sans KR |
 | Content | MDX (파일 기반) |
-| Form | React Hook Form |
-| Email | Nodemailer |
 | Analytics | Google Analytics 4 |
 | SEO | Next.js Metadata API |
 
@@ -68,8 +66,7 @@ mp-interactive/
 │   │   ├── services/            # 서비스 페이지 (naver-ads, google-ads, sns-ads)
 │   │   ├── portfolio/
 │   │   ├── blog/[slug]/         # MDX 동적 라우팅
-│   │   ├── contact/
-│   │   └── api/contact/         # Nodemailer 이메일 발송
+│   │   └── contact/             # 카카오톡·문자 문의 안내
 │   ├── components/
 │   │   ├── layout/              # Header, Footer
 │   │   ├── home/                # 홈 섹션별 컴포넌트
@@ -123,7 +120,7 @@ mp-interactive/
 | `/portfolio` | 포트폴리오 목록 (MDX, 필터 탭) |
 | `/blog` | 블로그 목록 + 사이드바 |
 | `/blog/[slug]` | 블로그 상세 + TOC |
-| `/contact` | 문의 폼 (React Hook Form) |
+| `/contact` | 카카오톡·문자 문의 안내 |
 
 ---
 
@@ -136,7 +133,7 @@ mp-interactive/
 - **Phase 3**: 홈페이지 섹션 조립
 - **Phase 4**: 서비스 페이지
 - **Phase 5**: 블로그 + 포트폴리오 (MDX)
-- **Phase 6**: 문의 폼 + 이메일 API
+- **Phase 6**: 문의 페이지 (카카오톡·문자)
 - **Phase 7**: vercel.json, 환경변수, 빌드 확인
 
 ---

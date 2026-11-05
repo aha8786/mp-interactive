@@ -23,12 +23,6 @@ lenis                 | -     | 스무스 스크롤 (BAND 파트너 스타일 �
 ## 아이콘
 lucide-react          | -     | 아이콘 세트
 
-## 폼
-react-hook-form       | -     | 문의하기 폼 유효성 검사
-
-## 이메일
-nodemailer            | -     | 문의 이메일 발송 API
-
 ## MDX
 @next/mdx             | -     | Next.js MDX 통합
 @mdx-js/react         | -     | MDX React 렌더링
@@ -38,4 +32,3 @@ gray-matter           | -     | MDX frontmatter 파싱
 @types/node           | -     | Node.js 타입
 @types/react          | -     | React 타입
 @types/react-dom      | -     | ReactDOM 타입
-@types/nodemailer     | -     | Nodemailer 타입

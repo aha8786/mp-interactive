@@ -33,8 +33,6 @@ Animation:     Framer Motion
 Icons:         Lucide React
 Font:          Noto Sans KR (Google Fonts) + Pretendard
 Content:       MDX (블로그/포트폴리오 파일 기반 관리)
-Form:          React Hook Form
-Email:         Nodemailer (문의하기 API)
 Analytics:     Google Analytics 4 (환경변수로 주입)
 SEO:           Next.js 내장 Metadata API
 배포:          Vercel (vercel.json 포함)
@@ -389,29 +387,12 @@ thumbnail: "/blog/naver-ads-cpc-2024.jpg"
 ### 📞 문의하기 (/contact)
 
 ```
-레이아웃: 좌우 2단 (데스크탑), 좌측: 연락처 정보, 우측: 폼
+레이아웃: 좌우 2단 (데스크탑), 좌측: 문의 채널, 우측: 상담 진행 방식
 
-연락처 섹션:
-  - 전화: 010-XXXX-XXXX
-  - 이메일: contact@mpinteractive.co.kr
-  - 카카오채널 링크
-  - 응대 시간: 평일 09:00~18:00
-
-문의 폼 (React Hook Form):
-  필드:
-    - 이름 (필수)
-    - 연락처 (필수, 휴대폰 형식 유효성 검사)
-    - 이메일 (필수, 이메일 형식)
-    - 회사명 (선택)
-    - 광고 예산 선택 (드롭다운):
-      "월 50만원 미만 / 50~100만원 / 100~300만원 / 300만원 이상"
-    - 문의 유형 (체크박스): 네이버광고 / 구글광고 / SNS광고 / 기타
-    - 문의 내용 (텍스트에어리어, 선택)
-    - 개인정보 동의 체크박스 (필수)
-  제출: /api/contact 로 POST → Nodemailer로 이메일 발송
-  성공 시: 감사 메시지 + 홈으로 버튼
-
-지도 섹션 (옵션): 카카오맵 또는 구글맵 iframe
+문의 채널 (카카오톡과 문자 메시지로만 접수, 메일 접수 없음):
+  - 카카오톡 채널 링크
+  - 문자 메시지 링크 (sms:)
+  - 응대 시간
 ```
 
 ---
@@ -699,11 +680,6 @@ export const metadata = {
 NEXT_PUBLIC_SITE_URL=https://mpinteractive.co.kr
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
-EMAIL_SERVER_HOST=smtp.gmail.com
-EMAIL_SERVER_PORT=587
-EMAIL_SERVER_USER=your@gmail.com
-EMAIL_SERVER_PASSWORD=앱비밀번호16자리
-CONTACT_RECEIVE_EMAIL=contact@mpinteractive.co.kr
 ```
 
 ---
@@ -777,8 +753,7 @@ Phase 5 — 콘텐츠 페이지
   29. MDXContent.tsx (MDX 렌더러)
 
 Phase 6 — 문의 & API
-  30. contact/page.tsx (React Hook Form)
-  31. api/contact/route.ts (Nodemailer)
+  30. contact/page.tsx (카카오톡·문자 링크)
 
 Phase 7 — 마무리
   32. vercel.json

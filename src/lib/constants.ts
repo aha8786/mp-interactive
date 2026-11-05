@@ -5,12 +5,10 @@ export const SITE_CONFIG = {
     "밴드 광고를 전문으로 하는 디지털 마케팅 대행사. 데이터 기반 광고 전략으로 매출을 올려드립니다.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://pinit.it.kr").trim(),
   phone: "010-6664-8786",
-  email: "pinit8786@gmail.com",
-  address: "경상북도 울진군 울진읍 울진중앙로 138-5",
   businessHours: "평일 09:00 ~ 24:00",
   kakaoChannel: "http://pf.kakao.com/_ZZAuX/chat",
   instagram: "https://instagram.com/mpinteractive",
-  blog: "https://blog.naver.com/mpinteractive",
+  blog: "https://blog.naver.com/pinit8786",
 };
 
 export const NAV_LINKS = [
@@ -151,11 +149,4 @@ export const BUDGET_OPTIONS = [
   "월 50~100만원",
   "월 100~300만원",
   "월 300만원 이상",
-];
-
-export const INQUIRY_TYPES = [
-  "네이버밴드광고",
-  // "구글광고",  // 준비 후 활성화
-  // "SNS광고",   // 준비 후 활성화
-  "기타",
 ];

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, Clock, MapPin, Instagram, MessageCircle } from "lucide-react";
+import { Phone, Clock, Instagram, MessageCircle } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export default function Footer() {
@@ -106,22 +106,9 @@ export default function Footer() {
                   {SITE_CONFIG.phone}
                 </a>
               </li>
-              <li>
-                <a
-                  href={`mailto:${SITE_CONFIG.email}`}
-                  className="flex items-center gap-2 text-sm text-[#6E6860] hover:text-[#1C1814] transition-colors"
-                >
-                  <Mail size={14} />
-                  {SITE_CONFIG.email}
-                </a>
-              </li>
               <li className="flex items-center gap-2 text-sm text-[#6E6860]">
                 <Clock size={14} className="shrink-0" />
                 {SITE_CONFIG.businessHours}
-              </li>
-              <li className="flex items-start gap-2 text-sm text-[#6E6860]">
-                <MapPin size={14} className="shrink-0 mt-0.5" />
-                {SITE_CONFIG.address}
               </li>
             </ul>
           </div>
@@ -137,9 +124,6 @@ export default function Footer() {
           <div className="flex gap-4">
             <Link href="/privacy" className="text-xs text-[#6E6860] hover:text-[#1C1814] transition-colors">
               개인정보처리방침
-            </Link>
-            <Link href="/terms" className="text-xs text-[#6E6860] hover:text-[#1C1814] transition-colors">
-              이용약관
             </Link>
           </div>
         </div>

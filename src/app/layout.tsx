@@ -64,7 +64,7 @@ const businessSchema = {
   },
   serviceArea: "대한민국 전국",
   priceRange: "$$",
-  openingHours: "Mo-Fr 09:00-18:00",
+  openingHours: "Mo-Fr 09:00-24:00",
   sameAs: [
     SITE_CONFIG.instagram,
     SITE_CONFIG.blog,

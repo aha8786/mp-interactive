@@ -4,6 +4,19 @@
 
 ---
 
+## [2026-11-05] 구글·SNS 블로그 글 비공개, 리포트 제공 방식 변경
+
+### 이유
+- 미출시 서비스 글로 AI가 핀잇을 구글·SNS 광고 대행사로 오해할 여지 제거
+- 메일을 쓰지 않는 운영 방식에 맞춰 FAQ 수정
+
+### 변경 내용
+- `src/content/blog/google-ads-tips.mdx`, `sns-ads-beginner.mdx`를 `src/content/_blog-private/`로 이동. 목록, 상세, 사이트맵, RSS에서 제외됨. `src/content/blog/`로 되돌리면 복구됨
+- `src/app/services/naver-ads/NaverBandAdsClient.tsx`: FAQ의 리포트 제공 방식을 카카오톡으로 변경, 협의 가능 문구 추가. FAQ 스키마에도 자동 반영
+- `src/app/blog/page.tsx`: 사이드바의 구글광고·SNS광고 카테고리와 설명 문구 제거, 누락된 밴드광고 카테고리 추가
+
+---
+
 ## [2026-11-05] AI 크롤러 명시적 허용, llms.txt 추가
 
 ### 이유

@@ -6,11 +6,11 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = buildMetadata({
   title: "블로그",
-  description: "디지털 광고 인사이트, 네이버광고, 구글광고, SNS광고 최신 트렌드와 실무 팁을 공유합니다.",
+  description: "네이버 밴드 광고 인사이트와 최신 트렌드, 실무 팁을 공유합니다.",
   path: "/blog",
 });
 
-const CATEGORIES = ["전체", "네이버광고", "구글광고", "SNS광고"];
+const CATEGORIES = ["전체", "밴드광고", "네이버광고"];
 
 export default function BlogPage() {
   const posts = getAllBlogPosts();
